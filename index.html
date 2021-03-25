@@ -20,28 +20,31 @@
 </header>
 
 <main>
-    <div class="wrapper">
-        <form action="" class="grid">
+    <div class="wrapper formDiv">
+        <form action="" class= "formClass">
             <label for="meaning" class="gridItem1">Similar meaning to:</label>
             <input type="text" id="meaning" class="gridItem2">
             
-            <div class="gridItem3">
-                <label for="startWith">Starts with:</label>
-                <input type="text" id="startWith" maxlength="1">
+            <div class="grid">
+                <div class="gridItem3">
+                    <label for="startWith">Starts with:</label>
+                    <input type="text" id="startWith" maxlength="1">
+                </div>
+                <div class="gridItem4">
+                    <label for="endsWith">Ends with:</label>
+                    <input type="text" id="endsWith" maxlength="1">
+                </div>
+                <button type="submit" class="gridItem5">Find My Word</button>
             </div>
-
-            <div class="gridItem4">
-                <label for="endsWith">Ends with:</label>
-                <input type="text" id="endsWith" maxlength="1">
-            </div>
-
-            <button type="submit" class="gridItem5">Find My Word</button>
         </form>
     </div>
     <div class="resultsClass wrapper">
         <h2>Your Words:</h2>
         <ul id="results">
             <!-- dynamic text!! -->
+            <li>Lorem, ipsum dolor.</li>
+            <li>Consequatur, natus doloribus!</li>
+            <li>Quod, eaque ad.</li>
         </ul>
     </div>
 </main>

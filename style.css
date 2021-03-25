@@ -30,7 +30,7 @@ html {
 }
 
 body {
-    background-color: lightgreen;
+    background-color: #d1e2bf;
 }
 
 header {
@@ -41,7 +41,8 @@ header {
 /* Fonts and typography */
 
 h1,
-h2 {
+h2,
+button {
     padding-bottom: 10px;
     font-size: 3.4rem;
     text-transform: uppercase;
@@ -52,10 +53,11 @@ h2 {
 
 p,
 label,
-footer a {
+footer a,
+li {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.3rem;
-    color: darkgreen;
+    color: #00542a;
     text-decoration: none;
 }
 
@@ -65,19 +67,25 @@ h2 {
 
 /*  Form Styles */
 
-form.grid {
+.grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
-    grid-column-gap: 150px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px;
+    grid-column-gap: 100px;
 }
 
 .gridItem1,
 .gridItem2 {
-    grid-column-start: 1;
-    grid-column-end: 4;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
 }
+
+.gridItem2 {
+    margin-bottom: 40px;
+}
+
 
 .gridItem3,
 .gridItem4 {
@@ -90,9 +98,48 @@ form.grid {
 }
 
 .gridItem5 {
-    grid-row-start: 3;
-    grid-row-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 4;
     grid-column-start: 2;
     grid-column-end: -1;
+}
+
+button {
+    color: #d1e2bf;
+    background-color: tomato;
+    border: none;
+    font-style: normal;
+    font-size: 2rem;
+}
+
+input {
+    border: none;
+    padding: 10px;
+}
+
+
+.formClass,
+.resultsClass {
+    background-color: #e7ece2;
+    padding: 60px;
+    margin-bottom: 60px;
+}
+
+li {
+    list-style-type: square;
+    padding: 10px 0;
+}
+
+
+/* footer styles */
+
+footer {
+    text-align: center;
+    background-color: #00542a;
+    padding: 50px;
+}
+
+footer a {
+    color: white;
 }
 
