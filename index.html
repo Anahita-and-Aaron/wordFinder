@@ -4,30 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="style.css">
+    <title>Word Finder</title>
 </head>
 <body>
 
 <header>
     <div class="wrapper">
-        <h1>Word Finder 200</h1>
+        <h1>Word Finder 2000</h1>
         <p>A tool that helps you find words for crossword puzzles and beyond!</p>
     </div>
 </header>
 
 <main>
-    <div class="wrapper formClass">
-        <form action="">
-            <label for="meaning">Similar meaning to:</label>
-            <input type="text" id="meaning">
+    <div class="wrapper">
+        <form action="" class="grid">
+            <label for="meaning" class="gridItem1">Similar meaning to:</label>
+            <input type="text" id="meaning" class="gridItem2">
             
-            <label for="startWith">Starts with:</label>
-            <input type="text" id="startWith" maxlength="1">
+            <div class="gridItem3">
+                <label for="startWith">Starts with:</label>
+                <input type="text" id="startWith" maxlength="1">
+            </div>
 
-            <label for="endsWith">Ends with:</label>
-            <input type="text" id="endsWith" maxlength="1">
+            <div class="gridItem4">
+                <label for="endsWith">Ends with:</label>
+                <input type="text" id="endsWith" maxlength="1">
+            </div>
 
-            <button type="submit">Find My Word</button>
+            <button type="submit" class="gridItem5">Find My Word</button>
         </form>
     </div>
     <div class="resultsClass wrapper">
@@ -40,6 +48,6 @@
 <footer>
     <a href="https://junocollege.com/">Created at Juno College</a>
 </footer>
-<h1>helo</h1>
+<script src="script.js"></script>
 </body>
 </html>
