@@ -110,6 +110,16 @@ button {
     border: none;
     font-style: normal;
     font-size: 2rem;
+    transition: color 0.2s;
+}
+
+button:hover,
+button:focus {
+    color: white;
+}
+
+button:active {
+    background-color: rgb(155, 57, 39);
 }
 
 input {
@@ -143,6 +153,19 @@ footer a {
     color: white;
 }
 
+/*  JS Styles */
+
 .invisible {
     visibility: hidden;
+}
+
+.error {
+    list-style-type: none;
+    font-size: 1.5rem;
+    color: darksalmon;
+}
+
+.resultsClass button {
+    font-size: 1.3rem;
+    padding: 20px 40px;
 }
