@@ -2,15 +2,15 @@ const wordApp = {}
 
 // Declare variables
 wordApp.apiUrl = 'https://api.datamuse.com/words';
-wordApp.form = document.querySelector('form')
-const ul = document.querySelector('ul');
-const moreButton = document.querySelector('#moreWords');
+wordApp.form = document.querySelector('form');
+wordApp.ul = document.querySelector('ul');
+wordApp.moreButton = document.querySelector('#moreWords');
 
 //  Helper function to make and display list items
 wordApp.displayItem = (wordsOnPage) => {
     const listItem = document.createElement('li');
     listItem.textContent = wordsOnPage;
-    ul.appendChild(listItem);
+    wordApp.ul.appendChild(listItem);
 }
 
 wordApp.init = () => {
@@ -18,15 +18,19 @@ wordApp.init = () => {
 }
 
 wordApp.moreWords = (jsonResponse) => {
-    moreButton.addEventListener('click', () => {
+    wordApp.moreButton.addEventListener('click', () => {
          //  Get first 10 words
-        const words = jsonResponse.slice (11, 21);
+        wordApp.start = wordApp.start + 10;
+        wordApp.end = wordApp.end + 10;
+        const words = jsonResponse.slice (wordApp.start, wordApp.end);
         // then create list items and append to ul 
         words.forEach( (word) => {
         wordApp.displayItem(word.word);
         })
     })
 }
+
+
 
 
 wordApp.displayWords = (jsonResponse) => {
@@ -41,13 +45,13 @@ wordApp.displayWords = (jsonResponse) => {
         document.querySelector('li').classList.add('error');
     } else {
         //  Get first 10 words
-        const words = jsonResponse.slice(0,10);
+        const words = jsonResponse.slice(wordApp.start, wordApp.end);
         // then create list items and append to ul 
         words.forEach( (word) => {
             wordApp.displayItem(word.word)
         });
         // Make button visible
-        moreButton.classList.remove('invisible');
+        wordApp.moreButton.classList.remove('invisible');
     }
     // toggle visibility class 
     resultsDiv.classList.remove('invisible');
@@ -79,7 +83,9 @@ wordApp.formSubmit = () => {
     wordApp.form.addEventListener('submit', (event) => {
         //  prevent page refresh
         event.preventDefault();
-        ul.innerHTML = '';
+        wordApp.ul.innerHTML = '';
+        wordApp.start = 0;
+        wordApp.end = 10;
         // Store values for each input in variables
         const meaning = document.getElementById('meaning').value;
         const startsWith = document.getElementById('startsWith').value;
