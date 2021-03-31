@@ -19,6 +19,7 @@ wordApp.displayItem = (wordsOnPage) => {
 
 wordApp.init = () => {
     wordApp.formSubmit();
+    wordApp.getDefinition();
 }
 
 wordApp.moreWords = (jsonResponse) => {
@@ -38,7 +39,7 @@ wordApp.moreWords = (jsonResponse) => {
 wordApp.displayWords = (jsonResponse) => {
     const resultsDiv = document.querySelector('.resultsClass');
     //  Check if all inputs are empty
-    if (meaning.value === '' && startsWith.value === '' && endsWith.value === '') {
+    if (meaning.value === '' && soundsLike === '' && startsWith.value === '' && endsWith.value === '') {
         wordApp.displayItem('Fill in at least one field to get results')
         document.querySelector('li').classList.add('error');
     } else if (jsonResponse.length === 0) {
@@ -70,11 +71,12 @@ wordApp.getWords = (url) => {
     })
 }
 
-wordApp.buildUrl = (meaning, startsWith, endsWith) => {
+wordApp.buildUrl = (meaning, soundsLike, startsWith, endsWith) => {
     const url = new URL(wordApp.apiUrl);
         url.search = new URLSearchParams({
             ml: meaning,
             sp: `${startsWith}*${endsWith}`,
+            sl: soundsLike
         })
         wordApp.getWords(url);
 }
@@ -89,10 +91,11 @@ wordApp.formSubmit = () => {
         wordApp.end = 10;
         // Store values for each input in variables
         const meaning = document.getElementById('meaning').value;
+        const soundsLike = document.getElementById('soundsLike').value;
         const startsWith = document.getElementById('startsWith').value;
         const endsWith = document.getElementById('endsWith').value;
         //  Build url using variables
-        wordApp.buildUrl(meaning, startsWith, endsWith);
+        wordApp.buildUrl(meaning, soundsLike, startsWith, endsWith);
         const input = document.querySelectorAll('input');
     })
 }
@@ -100,21 +103,25 @@ wordApp.formSubmit = () => {
 
 wordApp.getDefinition = () => {
     wordApp.ul.addEventListener('click', (event) => {
-        const wordInList = event.target.textContent;
+        if (event.target.children.length !== 0) {
+            event.target.removeChild(event.target.children[0]);
+        } else {
+            const wordInList = event.target.textContent;
 
-        const url = new URL(`${wordApp.dictUrl}${wordInList}`);
-        url.search = new URLSearchParams({
-            key: wordApp.dictKey,
-        })
+            const url = new URL(`${wordApp.dictUrl}${wordInList}`);
+            url.search = new URLSearchParams({
+                key: wordApp.dictKey,
+            })
 
-        fetch(url)
-        .then((response) => {
-            return response.json();
-        })
-        .then((jsonResponse) => {
-            wordApp.displayDefinition(jsonResponse[0].shortdef[0], event.target); 
-        })
-        })
+            fetch(url)
+            .then((response) => {
+                return response.json();
+            })
+            .then((jsonResponse) => {
+                wordApp.displayDefinition(jsonResponse[0].shortdef[0], event.target); 
+            })
+        }
+    })
 }
 
 wordApp.displayDefinition = (definition, listItem) => {
@@ -125,7 +132,7 @@ wordApp.displayDefinition = (definition, listItem) => {
 }
 
 
-wordApp.getDefinition();
+
 // listen for click on list item
 // make api call
 // return response

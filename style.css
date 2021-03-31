@@ -67,6 +67,16 @@ h2 {
 }
 
 /*  Form Styles */
+.item1,
+.item2 {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.item2 {
+    margin-bottom: 40px;
+}
 
 .grid {
     display: grid;
@@ -76,29 +86,19 @@ h2 {
     grid-column-gap: 100px;
 }
 
+
+
 .gridItem1,
 .gridItem2 {
-    display: block;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.gridItem2 {
-    margin-bottom: 40px;
-}
-
-
-.gridItem3,
-.gridItem4 {
     display: grid;
     grid-template-columns: 3fr 60px;
 }
 
-.gridItem4 {
+.gridItem2 {
     grid-row-start: -1;
 }
 
-.gridItem5 {
+.gridItem3 {
     grid-row-start: 1;
     grid-row-end: 4;
     grid-column-start: 2;
@@ -139,6 +139,7 @@ input {
 li {
     list-style-type: square;
     padding: 10px 0;
+    cursor: pointer;
 }
 
 
@@ -178,6 +179,6 @@ h3 {
 
 .definition {
     color: #0f7743;
-    padding-left: 40px;
+    padding: 5px 0 5px 20px;
     font-size: 1rem;
 }
