@@ -54,7 +54,8 @@ button {
 p,
 label,
 footer a,
-li {
+li,
+h3 {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.3rem;
     color: #00542a;
@@ -159,13 +160,24 @@ footer a {
     visibility: hidden;
 }
 
-.error {
+.error,
+h3 {
     list-style-type: none;
     font-size: 1.5rem;
     color: darksalmon;
 }
 
+h3 {
+    font-style: oblique;
+}
+
 .resultsClass button {
     font-size: 1.3rem;
     padding: 20px 40px;
+}
+
+.definition {
+    color: #0f7743;
+    padding-left: 40px;
+    font-size: 1rem;
 }
