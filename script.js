@@ -5,17 +5,18 @@ wordApp.apiUrl = 'https://api.datamuse.com/words';
 wordApp.form = document.querySelector('form');
 wordApp.ul = document.querySelector('ul');
 wordApp.moreButton = document.querySelector('#moreWords');
+wordApp.h3 = document.querySelector('h3');
 
 // dictionary variables 
 wordApp.dictUrl = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/';
 wordApp.dictKey = 'c3f5ec42-dfcc-4f14-a2a6-f7f2df69e673';
 
 //  Helper function to make and display list items
-wordApp.displayItem = (wordsOnPage) => {
-    const listItem = document.createElement('li');
-    listItem.textContent = wordsOnPage;
-    wordApp.ul.appendChild(listItem);
-}
+// wordApp.displayItem = (wordsOnPage) => {
+//     const listItem = document.createElement('li');
+//     listItem.textContent = wordsOnPage;
+//     wordApp.ul.appendChild(listItem);
+// }
 
 wordApp.init = () => {
     wordApp.formSubmit();
@@ -39,18 +40,19 @@ wordApp.moreWords = (jsonResponse) => {
 wordApp.displayWords = (jsonResponse) => {
     const resultsDiv = document.querySelector('.resultsClass');
     //  Check if all inputs are empty
-    if (meaning.value === '' && soundsLike === '' && startsWith.value === '' && endsWith.value === '') {
-        wordApp.displayItem('Fill in at least one field to get results')
-        document.querySelector('li').classList.add('error');
+    if (meaning.value === '' && soundsLike.value === '' && startsWith.value === '' && endsWith.value === '') {
+        wordApp.h3.innerHTML = `We didn't find any words! Fill in at least one field to get words &#129488;`;
     } else if (jsonResponse.length === 0) {
-        wordApp.displayItem('Search too specific no results')
-        document.querySelector('li').classList.add('error');
+        wordApp.h3.innerHTML =`We didn't find any words! Try a less specific search &#129488;`;
     } else {
+        wordApp.h3.textContent = 'Click on word to see definition';
         //  Get first 10 words
         const words = jsonResponse.slice(wordApp.start, wordApp.end);
         // then create list items and append to ul 
         words.forEach( (word) => {
-            wordApp.displayItem(word.word)
+            const listItem = document.createElement('li');
+            listItem.textContent = word.word;
+            wordApp.ul.appendChild(listItem);
         });
         // Make button visible
         wordApp.moreButton.classList.remove('invisible');
@@ -87,6 +89,7 @@ wordApp.formSubmit = () => {
         //  prevent page refresh
         event.preventDefault();
         wordApp.ul.innerHTML = '';
+        wordApp.moreButton.classList.add('invisible');
         wordApp.start = 0;
         wordApp.end = 10;
         // Store values for each input in variables
@@ -107,7 +110,6 @@ wordApp.getDefinition = () => {
             event.target.removeChild(event.target.children[0]);
         } else {
             const wordInList = event.target.textContent;
-
             const url = new URL(`${wordApp.dictUrl}${wordInList}`);
             url.search = new URLSearchParams({
                 key: wordApp.dictKey,
