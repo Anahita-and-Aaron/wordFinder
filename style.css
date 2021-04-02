@@ -130,6 +130,10 @@ input {
     padding: 10px;
 }
 
+input:focus {
+    outline: 2px solid tomato;
+}
+
 
 .formClass,
 .resultsClass {
