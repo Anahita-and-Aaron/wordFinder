@@ -7,16 +7,9 @@ wordApp.ul = document.querySelector('ul');
 wordApp.moreButton = document.querySelector('#moreWords');
 wordApp.h3 = document.querySelector('h3');
 
-// dictionary variables 
+// Dictionary variables 
 wordApp.dictUrl = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/';
 wordApp.dictKey = 'c3f5ec42-dfcc-4f14-a2a6-f7f2df69e673';
-
-//  Helper function to make and display list items
-// wordApp.displayItem = (wordsOnPage) => {
-//     const listItem = document.createElement('li');
-//     listItem.textContent = wordsOnPage;
-//     wordApp.ul.appendChild(listItem);
-// }
 
 wordApp.init = () => {
     wordApp.formSubmit();
@@ -35,7 +28,6 @@ wordApp.moreWords = (jsonResponse) => {
         })
     })
 }
-
 
 wordApp.displayWords = (jsonResponse) => {
     const resultsDiv = document.querySelector('.resultsClass');
@@ -132,21 +124,6 @@ wordApp.displayDefinition = (definition, listItem) => {
     pElement.textContent = definition;
     listItem.appendChild(pElement);
 }
-
-
-
-// listen for click on list item
-// make api call
-// return response
-// append return onto list item 
-
-
-
-
-
-
-
-
 
 
 wordApp.init();
