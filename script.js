@@ -16,6 +16,13 @@ wordApp.init = () => {
     wordApp.getDefinition();
 }
 
+//  Helper function to display words
+wordApp.displayItem = (item) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = item;
+    wordApp.ul.appendChild(listItem);
+}
+
 wordApp.moreWords = (jsonResponse) => {
     wordApp.moreButton.addEventListener('click', () => {
          //  Get first 10 words
@@ -42,9 +49,7 @@ wordApp.displayWords = (jsonResponse) => {
         const words = jsonResponse.slice(wordApp.start, wordApp.end);
         // then create list items and append to ul 
         words.forEach( (word) => {
-            const listItem = document.createElement('li');
-            listItem.textContent = word.word;
-            wordApp.ul.appendChild(listItem);
+            wordApp.displayItem(word.word);
         });
         // Make button visible
         wordApp.moreButton.classList.remove('invisible');
