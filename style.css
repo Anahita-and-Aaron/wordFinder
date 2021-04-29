@@ -62,7 +62,7 @@ li,
 h3 {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: 500;
     color: #536271;
     text-decoration: none;
 }
@@ -176,7 +176,7 @@ footer a {
 h3 {
     list-style-type: none;
     font-size: 1.5rem;
-    color: darksalmon;
+    color: lightslategrey;
 }
 
 h3 {
