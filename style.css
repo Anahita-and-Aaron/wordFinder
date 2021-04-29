@@ -30,7 +30,7 @@ html {
 }
 
 body {
-    background-color: #d1e2bf;
+    background-color: ligh;
 }
 
 header {
@@ -48,7 +48,11 @@ button {
     text-transform: uppercase;
     font-family: 'Archivo Black', sans-serif;
     font-style: oblique;
-    color: tomato;
+    color: #536271;
+}
+
+h1 {
+    text-shadow: 5px 5px #d4d7d1;
 }
 
 p,
@@ -58,7 +62,8 @@ li,
 h3 {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.3rem;
-    color: #00542a;
+    font-weight: 600;
+    color: #536271;
     text-decoration: none;
 }
 
@@ -107,8 +112,8 @@ h2 {
 }
 
 button {
-    color: #d1e2bf;
-    background-color: tomato;
+    color: lightyellow;
+    background-color: lightslategrey;
     border: none;
     font-style: normal;
     font-size: 2rem;
@@ -122,7 +127,7 @@ button:focus {
 }
 
 button:active {
-    background-color: rgb(155, 57, 39);
+    background-color: lightslategrey;
 }
 
 input {
@@ -131,13 +136,13 @@ input {
 }
 
 input:focus {
-    outline: 2px solid tomato;
+    outline: 2px solid lightslategrey;
 }
 
 
 .formClass,
 .resultsClass {
-    background-color: #e7ece2;
+    background-color: #d4d7d1;
     padding: 60px;
     margin-bottom: 60px;
 }
@@ -153,7 +158,7 @@ li {
 
 footer {
     text-align: center;
-    background-color: #00542a;
+    background-color: lightslategrey;
     padding: 50px;
 }
 
@@ -184,7 +189,7 @@ h3 {
 }
 
 .definition {
-    color: #0f7743;
+    color: lightslategrey;
     padding: 5px 0;
     font-size: 1rem;
 }
