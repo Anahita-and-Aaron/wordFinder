@@ -1,0 +1,21 @@
+﻿Word Finder 2000
+
+
+A heading “Word Finder 2000” and a short message that describes what the app does.
+
+
+A form with 3 inputs: one for similar meaning(text input), one for first letter(select) and one for last letter(select).
+
+
+Listen for submit event on the form. Store input values to variables.
+
+
+Use those variables to construct the UrlParams for the API call.
+
+
+Make API call
+Change response to JSON format
+Loop through the first 10 results and append a list item to our results ul for each word.
+
+
+Error handling for no text input and no first letter/last letter selected.

@@ -8,22 +8,37 @@
 </head>
 <body>
 
-    <!-- <script>
-        const wordApp = {};
-        wordApp.apiUrl = 'https:api.datamuse.com/words';
+<header>
+    <div class="wrapper">
+        <h1>Word Finder 200</h1>
+        <p>A tool that helps you find words for crossword puzzles and beyond!</p>
+    </div>
+</header>
 
-        const url = new URL(wordApp.apiUrl);
-        console.log(url);
-        url.search = new URLSearchParams({
-            ml: 'dog'
-        })
-        fetch(url)
-            .then( (response) => {
-                return response.json();
-            })
-            .then( (jsonResponse) => {
-                console.log(jsonResponse);
-            })
-    </script> -->
+<main>
+    <div class="wrapper formClass">
+        <form action="">
+            <label for="meaning">Similar meaning to:</label>
+            <input type="text" id="meaning">
+            
+            <label for="startWith">Starts with:</label>
+            <input type="text" id="startWith" maxlength="1">
+
+            <label for="endsWith">Ends with:</label>
+            <input type="text" id="endsWith" maxlength="1">
+
+            <button type="submit">Find My Word</button>
+        </form>
+    </div>
+    <div class="resultsClass wrapper">
+        <h2>Your Words:</h2>
+        <ul id="results">
+            <!-- dynamic text!! -->
+        </ul>
+    </div>
+</main>
+<footer>
+    <a href="https://junocollege.com/">Created at Juno College</a>
+</footer>
 </body>
 </html>
